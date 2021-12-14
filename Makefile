@@ -10,11 +10,17 @@ uname_P := $(shell sh -c 'uname -p 2>/dev/null || echo not')
 uname_V := $(shell sh -c 'uname -v 2>/dev/null || echo not')
 
 ifndef CFLAGS
-  CFLAGS = -std=c99 -Wall -O3 -I/usr/local/include
+  # Linux
+  #CFLAGS = -std=c99 -Wall -O3 -I/usr/local/include
+  # macos with brew
+  CFLAGS = -std=c99 -Wall -O3 -I/opt/homebrew/include
 endif
 
 ifndef LDFLAGS
-  LDFLAGS = -lgd -lm -L/usr/local/lib
+  # Linux
+  #LDFLAGS = -lgd -lm -L/usr/local/lib
+  # macos with brew
+  LDFLAGS = -lgd -lm -L/opt/homebrew/lib
 endif
 
 ifndef INSTALLDIR
